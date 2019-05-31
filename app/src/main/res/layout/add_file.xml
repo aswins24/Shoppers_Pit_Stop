@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:id="@+id/text_message"
+        android:textSize="15sp"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:textAppearance="@android:color/black"
+        android:text="Enter the Shop Name"
+        android:textAlignment="viewStart"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:inputType="textCapWords"
+        android:id="@+id/shop_name"
+        />
+        <requestFocus/>
+</LinearLayout>
