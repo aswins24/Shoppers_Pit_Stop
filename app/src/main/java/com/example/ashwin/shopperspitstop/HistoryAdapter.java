@@ -127,6 +127,20 @@ public class HistoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             price = itemview.findViewById(R.id.Total);
             itemview.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, height));
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(mContext, UniqueShoppinHistory.class);
+
+
+                    intent.putExtra("Shop Name", name.getText());
+                    intent.putExtra("Date", date.getText());
+                    intent.putExtra("Time", time.getText());
+
+                    mContext.startActivity(intent);
+                }
+            });
+
 
         }
     }

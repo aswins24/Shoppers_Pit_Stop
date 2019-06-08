@@ -50,7 +50,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/activity_horizontal_margin">
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -84,7 +85,8 @@
             android:text="Price/Qty"/>
     </LinearLayout>
 
-    <View style="@style/Divider"/>
+    <View style="@style/Divider"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"/>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"

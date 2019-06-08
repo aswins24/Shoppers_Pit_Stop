@@ -193,12 +193,14 @@ public class ShopCart extends MainActivity implements AdapterView.OnItemSelected
                   handler.NewHistoryTable(str);
                   Calculate.callOnClick();
                   listadapter.notifyDataSetChanged();
+                  Toast.makeText(getApplicationContext(),"Shopping Entry is saved to History Successfully",Toast.LENGTH_SHORT).show();
 
                   HistoryAdapter historyAdapter = TabFragment.getInstance();
 
                   if(historyAdapter != null) {
                       historyAdapter.LoadNewHistoryData();
                       historyAdapter.notifyDataSetChanged();
+
                   }
 
               } else{

@@ -12,7 +12,7 @@
         android:id="@+id/text_message"
         android:textSize="15sp"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:textAppearance="@android:color/background_light"
+        android:textColor="@android:color/white"
         android:text="Enter the Shop Name"
         android:textAlignment="viewStart"/>
 
