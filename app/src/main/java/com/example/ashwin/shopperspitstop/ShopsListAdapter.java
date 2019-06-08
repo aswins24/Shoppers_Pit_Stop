@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -58,7 +57,7 @@ public class ShopsListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public int getItemCount() {
 
         if (resource_layout == R.layout.shop_list_database) {
-            return Data.size() + 1;  // Data for Main Activity, 1st element will be Shopping History Card
+            return Data.size();  // Data for Main Activity
         } else {
             return Data_1.size(); //Data for ShopCArt Activity
         }
@@ -69,23 +68,9 @@ public class ShopsListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         Log.d("ViewHolderPosition", " " + position);
         if (holder instanceof ViewHolder) {
-            if (position == 0) {
-                //CardView for Shopping History Activity
-                String table_name = "Shopping History";
-                ((ViewHolder) holder)._textView.setText(table_name);
 
-                holder.itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                        Intent intent = new Intent(mContext, ShopListHistory.class);
-                        mContext.startActivity(intent);
-                    }
-                });
-
-            } else {
                 //CardView for each Shop
-                _data = Data.get(position - 1);
+                _data = Data.get(position);
                 final String _shop_Name = String.valueOf(_data.getShopName());
                 ((ViewHolder) holder)._textView.setText(_shop_Name);
                 //holder._textView.setText(_shop_Name);
@@ -100,7 +85,6 @@ public class ShopsListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                     }
                 });
 
-            }
         } else if (holder instanceof ViewHolder1) {
             data_1 = Data_1.get(position);
 
@@ -169,7 +153,6 @@ public class ShopsListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         View v1;
-        CardView _cardView;
         TextView _textView;
 
         public ViewHolder(View itemview) {
