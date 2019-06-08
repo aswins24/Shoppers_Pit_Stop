@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
-        android:layout_marginStart="@dimen/activity_vertical_margin"
+        android:layout_marginEnd="@dimen/activity_vertical_margin"
         android:background="@color/cardview_dark_background"
         card_view:cardBackgroundColor="@android:color/holo_blue_dark"
         card_view:cardCornerRadius="5dp"
@@ -20,9 +20,9 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
             android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:layout_marginBottom="@dimen/activity_vertical_margin">
+            android:layout_marginTop="@dimen/activity_vertical_margin">
 
             <TextView
                 android:id="@+id/shopName"
@@ -30,20 +30,21 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:paddingStart="@dimen/activity_vertical_margin"
-                android:paddingEnd="@dimen/activity_vertical_margin"
                 android:paddingBottom="@dimen/activity_horizontal_margin"
-                android:visibility="invisible"/>
+                android:paddingEnd="@dimen/activity_vertical_margin"
+                android:paddingStart="@dimen/activity_vertical_margin"
+                android:visibility="invisible" />
+
             <TextView
+                android:id="@+id/total_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:id="@+id/total_text"
                 android:layout_below="@+id/shopName"
-                android:paddingStart="@dimen/activity_vertical_margin"
                 android:paddingEnd="@dimen/activity_vertical_margin"
+                android:paddingStart="@dimen/activity_vertical_margin"
                 android:paddingTop="@dimen/activity_horizontal_margin"
-                android:text="Total in (Rs) "/>
+                android:text="Total in (Rs) " />
 
             <TextView
                 android:id="@+id/Total"
@@ -51,16 +52,15 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/shopName"
                 android:layout_toEndOf="@+id/total_text"
-                android:paddingStart="@dimen/activity_vertical_margin"
                 android:paddingEnd="@dimen/activity_vertical_margin"
-                android:paddingTop="@dimen/activity_horizontal_margin"
-                />
+                android:paddingStart="@dimen/activity_vertical_margin"
+                android:paddingTop="@dimen/activity_horizontal_margin" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toStartOf="@+id/Date"
-                android:text="Date : "/>
+                android:text="Date : " />
 
             <TextView
                 android:id="@+id/Date"
@@ -68,19 +68,19 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginLeft="@dimen/activity_vertical_margin"
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
-                android:layout_marginRight="@dimen/activity_vertical_margin"
-               />
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toStartOf="@+id/Time"
                 android:layout_alignParentBottom="true"
-                android:layout_marginEnd="@dimen/activity_vertical_margin"
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_marginEnd="@dimen/activity_vertical_margin"
                 android:layout_marginStart="@dimen/activity_vertical_margin"
-                android:text="Time : "/>
+                android:layout_toStartOf="@+id/Time"
+                android:text="Time : " />
 
             <TextView
                 android:id="@+id/Time"
@@ -89,10 +89,9 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
                 android:layout_below="@+id/Date"
-                android:layout_marginEnd="@dimen/activity_vertical_margin"
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
-                android:layout_marginStart="@dimen/activity_vertical_margin"
-                />
+                android:layout_marginEnd="@dimen/activity_vertical_margin"
+                android:layout_marginStart="@dimen/activity_vertical_margin" />
         </RelativeLayout>
 
 

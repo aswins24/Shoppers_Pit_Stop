@@ -1,7 +1,6 @@
 package com.example.ashwin.shopperspitstop;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,8 +16,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.List;
-
 /**
  * Created by ashwin on 5/20/2019.
  */
@@ -30,9 +27,7 @@ public class ShopCart extends MainActivity implements AdapterView.OnItemSelected
     private String _weight_measurement;
     private double _price;
     private SQLiteDatabase db;
-    private Cursor cursor;
     private RecyclerView.LayoutManager layoutManager;
-    private List<Items> data_items;
     private ShopsListAdapter listadapter;
     private RecyclerView Rv;
 
@@ -198,6 +193,14 @@ public class ShopCart extends MainActivity implements AdapterView.OnItemSelected
                   handler.NewHistoryTable(str);
                   Calculate.callOnClick();
                   listadapter.notifyDataSetChanged();
+
+                  HistoryAdapter historyAdapter = TabFragment.getInstance();
+
+                  if(historyAdapter != null) {
+                      historyAdapter.LoadNewHistoryData();
+                      historyAdapter.notifyDataSetChanged();
+                  }
+
               } else{
 
                   Toast.makeText(getApplicationContext(),"Found price is not added to one or more items",Toast.LENGTH_SHORT).show();

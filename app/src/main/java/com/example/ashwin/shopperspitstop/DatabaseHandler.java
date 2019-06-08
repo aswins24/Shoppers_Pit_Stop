@@ -245,7 +245,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     public void NewHistoryTable(String TableName) {
-            //Creating unique table name to hold list of items for a particular shop at specified time;
+        //Creating unique table name to hold list of items for a particular shop at specified time;
         List<Items> shopping_list = getAllitems(TableName);
         if (shopping_list.size() > 0) {
             //Date and time can be used to get unique name
@@ -297,24 +297,25 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 
 
-        SQLiteDatabase db = this.getReadableDatabase();
 
         HistoryItems _historyitems;
 
         for (Shop_Name shop : shop_name) {
-            _historyitems = new HistoryItems();
-            _historyitems.set_header(shop.getShopName());
-            Log.d("HistoryItems", "Current Shop Name is " + shop.getShopName());
-            historyItems.add(_historyitems);
+
 
             String query = "SELECT * FROM " + UNIQUE_HISTORY_NAME + " WHERE " + UNIQUE_HISTORY_NAME + "." + COLUMN_LINK_ID + " =?";
+            SQLiteDatabase db = this.getReadableDatabase();
             try {
-                Log.d("HistoryItems", "Before Query");
+
+                Log.d("HistoryItems", "Before Query " + db + " " + cursor);
                 cursor = db.rawQuery(query, new String[]{String.valueOf(shop.getId())});
                 Log.d("HistoryItems", "After Query " + cursor.getCount());
 
                 if (cursor.moveToFirst()) {
-
+                    _historyitems = new HistoryItems();
+                    _historyitems.set_header(shop.getShopName());
+                    Log.d("HistoryItems", "Current Shop Name is " + shop.getShopName());
+                    historyItems.add(_historyitems);
                     do {
                         String name = cursor.getString(1);
                         Log.d("HistoryItems", "ID is " + cursor.getInt(0) + " Name is " + cursor.getString(1) + " Link id is " + cursor.getInt(2) + " Date is " + cursor.getString(3) + " Time is " + cursor.getString(4));
@@ -328,18 +329,18 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         _historyitems.set_price(gettotalPrice(name));
                         historyItems.add(_historyitems);
                     } while (cursor.moveToNext());
-
+                    db.close();
                 }
 
             } catch (Exception e) {
                 Log.d("HistoryItems", e.getMessage());
+                db.close();
             }
         }
 
-        if (cursor != null)
-            cursor.close();
 
-        db.close();
+        if(cursor!=null)
+        cursor.close();
         return historyItems;
     }
 
@@ -393,7 +394,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             Log.d("Null Price", e.getMessage());
         }
 
-
+        db.close();
         return false;
     }
 }
